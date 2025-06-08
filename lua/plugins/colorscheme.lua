@@ -1,12 +1,6 @@
 return {
-  {
-    "folke/tokyonight.nvim",
-    opts = {
-      transparent = false,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-    },
-  },
+  "folke/tokyonight.nvim",
+
+  lazy = true,
+  opts = { style = "night" },
 }
