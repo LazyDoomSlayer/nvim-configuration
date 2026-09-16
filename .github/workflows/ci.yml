@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Check Lua formatting
+        uses: JohnnyMorganz/stylua-action@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 2.5.2
+          args: --check lua
+      - name: Check Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v24.2.0
+        with:
+          globs: "**/*.md"
+      - name: Validate JSON
+        run: jq empty lazyvim.json lazy-lock.json .markdownlint.json
+
+  startup:
+    name: Startup (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: stable
+      - name: Install Ubuntu prerequisites
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y build-essential curl fd-find fzf git ripgrep unzip
+      - name: Install macOS prerequisites
+        if: runner.os == 'macOS'
+        run: brew install fd fzf lazygit ripgrep tree-sitter-cli
+      - name: Prepare isolated configuration
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/xdg-config" "$RUNNER_TEMP/xdg-data" "$RUNNER_TEMP/xdg-cache" "$RUNNER_TEMP/xdg-state"
+          ln -s "$GITHUB_WORKSPACE" "$RUNNER_TEMP/xdg-config/nvim"
+      - name: Install plugins and verify startup
+        env:
+          XDG_CONFIG_HOME: ${{ runner.temp }}/xdg-config
+          XDG_DATA_HOME: ${{ runner.temp }}/xdg-data
+          XDG_CACHE_HOME: ${{ runner.temp }}/xdg-cache
+          XDG_STATE_HOME: ${{ runner.temp }}/xdg-state
+        run: nvim --headless "+Lazy! sync" +qa
+
+  fedora-startup:
+    name: Startup (Fedora)
+    runs-on: ubuntu-latest
+    container: fedora:latest
+    steps:
+      - name: Install prerequisites
+        run: dnf install -y gcc gcc-c++ make curl fd-find fzf git neovim ripgrep tree-sitter-cli unzip
+      - uses: actions/checkout@v7
+      - name: Prepare isolated configuration
+        run: |
+          mkdir -p "$RUNNER_TEMP/xdg-config" "$RUNNER_TEMP/xdg-data" "$RUNNER_TEMP/xdg-cache" "$RUNNER_TEMP/xdg-state"
+          ln -s "$GITHUB_WORKSPACE" "$RUNNER_TEMP/xdg-config/nvim"
+      - name: Install plugins and verify startup
+        env:
+          XDG_CONFIG_HOME: ${{ runner.temp }}/xdg-config
+          XDG_DATA_HOME: ${{ runner.temp }}/xdg-data
+          XDG_CACHE_HOME: ${{ runner.temp }}/xdg-cache
+          XDG_STATE_HOME: ${{ runner.temp }}/xdg-state
+        run: nvim --headless "+Lazy! sync" +qa

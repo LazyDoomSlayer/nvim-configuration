@@ -2,7 +2,7 @@
 
 ## Scope
 
-These instructions apply to the entire repository. This is a personal LazyVim configuration targeting macOS.
+These instructions apply to the entire repository. This is a personal LazyVim configuration targeting macOS, Ubuntu, and Fedora.
 
 ## Goals
 
@@ -17,7 +17,6 @@ These instructions apply to the entire repository. This is a personal LazyVim co
 - General editor options, keymaps, and autocommands belong in their matching file under `lua/config/`.
 - Custom plugins and overrides belong in focused files under `lua/plugins/`.
 - Enable official integrations through `lazyvim.json` when a suitable LazyVim extra exists.
-- Do not copy the reference contents of `lua/plugins/example.lua` into active configuration. That file deliberately returns an empty plugin specification.
 - Do not hardcode the owner's home directory or machine-specific absolute paths.
 - Never commit credentials, tokens, private keys, machine state, plugin caches, Mason packages, logs, or swap files.
 
