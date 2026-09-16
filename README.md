@@ -70,6 +70,81 @@ Language extras configure the editor tooling; they do not necessarily install th
 | `:Mason` | Inspect installed development tools |
 | `:checkhealth` | Diagnose Neovim and plugin dependencies |
 
+### Surround editing
+
+| Key | Action |
+| --- | --- |
+| `gsa` | Add surrounding characters |
+| `gsd` | Delete surrounding characters |
+| `gsr` | Replace surrounding characters |
+| `gsf` / `gsF` | Find surrounding characters right / left |
+| `gsh` | Highlight surrounding characters |
+| `gsn` | Change the number of surrounding lines searched |
+
+### Tests
+
+| Key | Action |
+| --- | --- |
+| `Space t t` | Run tests in the current file |
+| `Space t T` | Run all tests in the working directory |
+| `Space t r` | Run the nearest test |
+| `Space t l` | Run the last test again |
+| `Space t a` | Attach to the running test |
+| `Space t d` | Debug the nearest test |
+| `Space t s` | Toggle the test summary |
+| `Space t o` | Show test output |
+| `Space t O` | Toggle the output panel |
+| `Space t w` | Toggle watch mode for the current file |
+| `Space t S` | Stop the running test |
+
+### Debugger
+
+| Key | Action |
+| --- | --- |
+| `Space d b` | Toggle a breakpoint |
+| `Space d B` | Set a conditional breakpoint |
+| `Space d c` | Run or continue |
+| `Space d a` | Run with arguments |
+| `Space d C` | Run to the cursor |
+| `Space d g` | Go to a line without executing |
+| `Space d i` | Step into |
+| `Space d j` / `Space d k` | Move down / up the stack frames |
+| `Space d O` | Step over |
+| `Space d o` | Step out |
+| `Space d l` | Run the last debug configuration |
+| `Space d P` | Pause execution |
+| `Space d s` | Show the active debug session |
+| `Space d t` | Terminate debugging |
+| `Space d r` | Toggle the debug REPL |
+| `Space d u` | Toggle the debugger UI |
+| `Space d e` | Evaluate the expression under the cursor or selection |
+| `Space d w` | Show debugger widgets |
+
+### Treesitter context
+
+| Key | Action |
+| --- | --- |
+| `Space u t` | Toggle the sticky Treesitter context header |
+
+### REST requests
+
+These mappings are available in `.http` files unless noted otherwise.
+
+| Key | Action |
+| --- | --- |
+| `Space R s` | Send the current request |
+| `Space R r` | Replay the last request from any buffer |
+| `Space R b` | Open the REST scratchpad |
+| `Space R c` | Copy the current request as cURL |
+| `Space R C` | Paste a cURL command as a request |
+| `Space R e` | Select an environment |
+| `Space R g` | Download the GraphQL schema |
+| `Space R i` | Inspect the current request |
+| `Space R n` / `Space R p` | Go to the next / previous request |
+| `Space R t` | Toggle between headers and body |
+| `Space R S` | Show request statistics |
+| `Space R q` | Close the response window |
+
 ## Repository structure
 
 ```text
