@@ -8,6 +8,8 @@ Personal [LazyVim](https://www.lazyvim.org/) configuration for macOS, with langu
 - Development support for Go, Rust, Python, PHP, Kotlin, TypeScript, Vue, Svelte, Terraform, Docker, SQL, Nix, and related formats.
 - Telescope for project search and navigation.
 - Yank history through `yanky.nvim`.
+- Surround editing, sticky Treesitter context, integrated tests, and debugging.
+- API requests directly from `.http` files.
 - Transparent editor, floating-window, Telescope, and Snacks backgrounds.
 - Git integration through Gitsigns and the LazyVim-provided Lazygit terminal.
 
@@ -48,9 +50,10 @@ LazyVim installs plugins on the first launch. Mason installs the language server
 
 The enabled extras are declared in [`lazyvim.json`](./lazyvim.json):
 
-- Editing: Yanky and Telescope.
+- Editing: Mini Surround, Yanky, Telescope, and Treesitter Context.
+- Development workflow: Neotest, DAP debugging, and REST requests through Kulala.
 - Formatting and linting: Black, Prettier, Biome, and ESLint.
-- Languages and formats: CMake, Docker, Git, Go, JSON, Kotlin, Markdown, Nix, PHP, Prisma, Python, Rust, SQL, Svelte, Tailwind CSS, Terraform, TOML, TypeScript, Vue, and YAML.
+- Languages and formats: Docker, Git, Go, JSON, Kotlin, Markdown, Nix, PHP, Prisma, Python, Rust, SQL, Svelte, Tailwind CSS, Terraform, TOML, TypeScript, Vue, and YAML.
 
 Language extras configure the editor tooling; they do not necessarily install the underlying compiler, SDK, database, or runtime.
 
