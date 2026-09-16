@@ -34,7 +34,9 @@ These instructions apply to the entire repository. This is a personal LazyVim co
 - Give every custom keymap a useful `desc` value so WhichKey can display it.
 - Prefer extending existing option tables instead of replacing complete LazyVim defaults.
 - Use `optional = true` when configuring another plugin that may not be installed.
-- Update `README.md` whenever requirements, enabled languages, keymaps, or installation steps change.
+- Update `README.md` whenever requirements, enabled languages, platform support, or installation steps change.
+- Update `docs/KEYMAPS.md` whenever a shortcut is added, removed, or changed.
+- Do not claim support for an operating system until its prerequisites and installation workflow have been verified.
 
 ## Validation
 
