@@ -12,6 +12,7 @@ Personal [LazyVim](https://www.lazyvim.org/) configuration for macOS, Ubuntu, an
 - API requests directly from `.http` files.
 - Transparent editor, floating-window, Telescope, and Snacks backgrounds.
 - Git integration through Gitsigns and the LazyVim-provided Lazygit terminal.
+- Seamless navigation and resizing across Neovim splits and tmux panes through `smart-splits.nvim`.
 
 ## Requirements
 

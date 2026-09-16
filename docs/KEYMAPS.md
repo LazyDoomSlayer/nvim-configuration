@@ -4,6 +4,21 @@ This reference covers shortcuts enabled or emphasized by this configuration. Laz
 
 `<leader>` is the Space key. For example, `<leader>gg` means press Space, then `g`, then `g`.
 
+## Tmux-aware split navigation
+
+These mappings work across both Neovim splits and tmux panes when Neovim is running inside tmux.
+
+| Shortcut | Action |
+| --- | --- |
+| `Ctrl-h` | Move left |
+| `Ctrl-j` | Move down |
+| `Ctrl-k` | Move up |
+| `Ctrl-l` | Move right |
+| `Alt-h` | Resize left |
+| `Alt-j` | Resize down |
+| `Alt-k` | Resize up |
+| `Alt-l` | Resize right |
+
 ## Git
 
 | Key | Action |
